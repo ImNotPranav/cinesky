@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineSky</title>
+    <link rel="stylesheet" href="{% static 'booksky/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <h1>CineSky</h1>
+    </div> 
+    <div class="container">
+        {% for book in books %}
+        <div class="book-container">
+            <h2>{{ book.title }}</h2>
+            <h5>{{ book.author }}</h5>
+            <p>{{ book.description }}</p>
+            <form method="POST" action="{% url 'delete_book' book.id %}">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">Delete</button>
+            </form>
+        </div> 
+        {% endfor %}
+    </div>
+    <div class="popupoverlay"></div>
+    <div class="popupbox">
+        <h2>Add Movie</h2>
+        <form method="POST" action="{% url 'add_book' %}">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Movie Title" id="book-title-ip">
+            <input type="text" name="author" placeholder="Director" id="book-author-ip">
+            <textarea name="description" placeholder="Short Description" id="book-description"></textarea>
+            <button type="submit">ADD</button>
+            <button type="button" id="cancel-book">CANCEL</button>
+        </form>
+    </div>
+    <button class="add-button" id="add-popup-box">+</button>
+    <script src="{% static 'booksky/script.js' %}"></script>
+</body>
+</html>
