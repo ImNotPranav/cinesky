@@ -13,10 +13,10 @@ This project uses environment variables for sensitive settings like `SECRET_KEY`
 
 To run the project locally, create a `.env` file in the project root with the following variables:
 
-DJANGO_SECRET_KEY=your-secret-key
-DB_NAME=your-database-name
-DB_USER=root
-DB_PASSWORD=your-database-password
-DB_HOST=localhost
-DB_PORT=3306
-DEBUG=True
+DJANGO_SECRET_KEY=your-secret-key,
+DB_NAME=your-database-name,
+DB_USER=root,
+DB_PASSWORD=your-database-password,
+DB_HOST=localhost,
+DB_PORT=3306,
+DEBUG=True.
