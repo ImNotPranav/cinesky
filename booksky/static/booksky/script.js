@@ -3,6 +3,7 @@ var popupbox=document.querySelector(".popupbox")
 var addbtn=document.getElementById("add-popup-box")
 let editbtns=document.querySelectorAll(".edit-btn")
 addbtn.addEventListener("click",function(){
+    document.getElementById("pb-head").innerText="Add Movie"
     popupoverlay.style.display="block"
     popupbox.style.display="block"
 })
@@ -10,6 +11,7 @@ editbtns.forEach(function(editbtn){
     editbtn.addEventListener("click",function(){
         popupoverlay.style.display="block"
         popupbox.style.display="block"
+        document.getElementById("pb-head").innerText="Edit Movie"
         let card=this.closest(".book-container")
         let title=card.querySelector("h2").innerText
         let author=card.querySelector("h5").innerText

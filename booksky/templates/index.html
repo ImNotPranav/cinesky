@@ -30,7 +30,7 @@
     </div>
     <div class="popupoverlay"></div>
     <div class="popupbox">
-        <h2>Add Movie</h2>
+        <h2 id="pb-head">Add Movie</h2>
         <form method="POST" action="{% url 'add_book' %}" id="add-book-form">
             {% csrf_token %}
             <input type="text" name="title" placeholder="Movie Title" id="book-title-ip">
