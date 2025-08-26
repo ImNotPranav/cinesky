@@ -1,9 +1,26 @@
 var popupoverlay=document.querySelector(".popupoverlay")
 var popupbox=document.querySelector(".popupbox")
 var addbtn=document.getElementById("add-popup-box")
+let editbtns=document.querySelectorAll(".edit-btn")
 addbtn.addEventListener("click",function(){
     popupoverlay.style.display="block"
     popupbox.style.display="block"
+})
+editbtns.forEach(function(editbtn){
+    editbtn.addEventListener("click",function(){
+        popupoverlay.style.display="block"
+        popupbox.style.display="block"
+        let card=this.closest(".book-container")
+        let title=card.querySelector("h2").innerText
+        let author=card.querySelector("h5").innerText
+        let desc=card.querySelector("p").innerText
+        document.getElementById("book-title-ip").value = title;
+        document.getElementById("book-author-ip").value = author;
+        document.getElementById("book-description").value = desc;
+        form=document.getElementById("add-book-form")
+        form.action=`edit_book/${editbtn.dataset.id}`
+        document.getElementById("add-or-edit-btn").innerText="UPDATE"
+    })
 })
 var cancelbtn=document.getElementById("cancel-book")
 cancelbtn.addEventListener("click",function(event){

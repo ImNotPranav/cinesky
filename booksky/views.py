@@ -16,3 +16,10 @@ def add_book(request):
         if form.is_valid():
             form.save()
     return redirect("home")
+def edit_book(request,pk):
+    bk=Book.objects.get(id=pk)
+    if request.method == "POST":
+        form=BookForm(request.POST,instance=bk)
+        if form.is_valid():
+            form.save()
+    return redirect("home")
