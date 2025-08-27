@@ -1,6 +1,6 @@
-# FilmSky
+# CineSky
 
-FilmSky is a personal movie logging app where you can add movies with directors and descriptions, just like Letterboxd.
+CineSky is a personal movie logging app where you can add movies with directors and descriptions, just like Letterboxd.
 
 ## Features
 - Add movies with title, director, and description
